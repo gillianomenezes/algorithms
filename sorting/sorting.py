@@ -1,7 +1,7 @@
 def get_lower_element_index(array):
     lower = array[0]
     lower_index = 0
-    for i in range(1,len(array)):
+    for i in range(1, len(array)):
         if lower > array[i]:
             lower = array[i]
             lower_index = i
@@ -11,7 +11,7 @@ def get_lower_element_index(array):
 
 def selection_sorting(input_array):
     if len(input_array) < 0:
-        return input_array 
+        return input_array
 
     array = input_array.copy()
     sorted_array = []
