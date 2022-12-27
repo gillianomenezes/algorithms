@@ -9,7 +9,7 @@ def get_lower_element_index(array):
     return lower_index
 
 
-def selection_sorting(input_array):
+def selection(input_array):
     if len(input_array) < 0:
         return input_array
 
@@ -21,3 +21,13 @@ def selection_sorting(input_array):
         sorted_array.append(array.pop(lower_index))
 
     return sorted_array
+
+def quicksort(input_array: list) -> list:
+    if len(input_array) < 2:
+        return input_array
+
+    pivot = input_array[0]
+    lower_than_pivot = [i for i in input_array[1:] if i <= pivot]
+    greater_than_pivot = [i for i in input_array[1:] if i > pivot]
+
+    return quicksort(lower_than_pivot) + [pivot] + quicksort(greater_than_pivot)

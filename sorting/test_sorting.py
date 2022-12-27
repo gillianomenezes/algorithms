@@ -1,14 +1,18 @@
 import pytest
 import random
 
-from sorting import selection_sorting
+from sorting import methods
 
 
 @pytest.mark.parametrize(
     "input_array", [([]), ([3, 2, 1]), (random.sample(range(10, 30), 5))]
 )
-def test_selection_sorting(input_array):
-    sorted_array = selection_sorting(input_array)
+@pytest.mark.parametrize(
+    "sorting_method", [('selection'), ('quicksort')]
+)
+def test_sorting_methods(input_array, sorting_method):
+    method = getattr(methods, sorting_method)
+    sorted_array = method(input_array)
 
     input_array.sort()
     assert sorted_array == input_array
